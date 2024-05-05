@@ -368,7 +368,7 @@ ADD COLUMN APTO_PARA_JUGAR BOOLEAN DEFAULT TRUE;
 
 DELIMITER //
 
-CREATE TRIGGER trg_check_red_card
+CREATE TRIGGER check_tarjetas_rojas
 BEFORE INSERT ON JUGADORES
 FOR EACH ROW
 BEGIN
@@ -383,9 +383,9 @@ DELIMITER ;
 SELECT * FROM JUGADORES WHERE APTO_PARA_JUGAR = FALSE;
 
 
-CREATE USER 'user_all_tables'@'localhost' IDENTIFIED BY 'pass456';
+CREATE USER 'admin_all_tables'@'localhost' IDENTIFIED BY 'pass456';
 GRANT ALL PRIVILEGES 
-ON TORNEO_FUTBOL.* TO 'user_all_tables'@'localhost';
+ON TORNEO_FUTBOL.* TO 'admin_all_tables'@'localhost';
 FLUSH PRIVILEGES;
 
 
